@@ -45,7 +45,12 @@ Implementation details:
  .Execute dmesg
 
  
- 
+![WhatsApp Image 2022-04-22 at 11 39 22 PM (2)](https://user-images.githubusercontent.com/61773326/164883604-56e9c857-6032-41ac-ae9a-0875e7ed09fc.jpeg)
+![WhatsApp Image 2022-04-22 at 11 39 22 PM (1)](https://user-images.githubusercontent.com/61773326/164883607-90b48105-e91e-4505-9a63-1a28af27d75a.jpeg)
+![WhatsApp Image 2022-04-22 at 11 39 22 PM](https://user-images.githubusercontent.com/61773326/164883608-c91f401a-ba65-4343-a8fe-f8c062a62969.jpeg)
+![WhatsApp Image 2022-04-22 at 11 39 21 PM](https://user-images.githubusercontent.com/61773326/164883609-6140ab00-f35b-4f5d-ac7a-33dc252891e3.jpeg)
+
+
 ====================
 Assignment 2
 
