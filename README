@@ -1,18 +1,55 @@
-Linux kernel
+Assignmemt 1
 ============
 
-There are several guides for kernel developers and users. These guides can
-be rendered in a number of formats, like HTML and PDF. Please read
-Documentation/admin-guide/README.rst first.
+Aim:
+The aim of this assignment is to develop a Linux kernel module that queries various MSRs to detect whether virtualization capabilities are available in the CPU. The module notifies you of any new features it detects. The following items must be developed.
+. Set up a Linux computer, either virtualized or on physical hardware. You are allowed to use whatever Linux distribution you like.
+. Download and compile the Linux kernel source code
+. Create a new kernel module with assignment functionality
+. Load (insert) the new module
+.Check the system message log for suitable output.
 
-In order to build the documentation, use ``make htmldocs`` or
-``make pdfdocs``.  The formatted documentation can also be read online at:
+Functionalities:
+. Read the VMX configuration MSRs to determine support capabilities/features.
+.Entry/Exit/Procbased/Secondary Procbased/Pinbased controls
+.For each of the above-mentioned groups of controls, interpret and output the values read from the MSR to the system.
+.via printk(..), including whether or not the value may be set or cleared
 
-    https://www.kernel.org/doc/html/latest/
-
-There are various text files in the Documentation/ subdirectory,
-several of them using the Restructured Text markup notation.
-
-Please read the Documentation/process/changes.rst file, as it contains the
-requirements for building and running the kernel, and information about
-the problems which may result by upgrading your kernel.
+Implementation details:
+.On the Windows 11 PC, install VMware Workstation.
+.Downloaded the Ubuntu 22.04 LTS Desktop operating system image.
+.In VMware Workstation, create a new virtual machine with the Ubuntu OS parameters listed below.
+.The device has 8GB RAM, 50GB memory, and a dual core CPU with layered virtualization.
+  
+ Hardware Configuration:
+ 
+ .Once all of the parameters have been completed, click Finish to load the operating system and spin up the virtual machine.
+ .Run "cat /proc/cpuinfo" to determine whether nested virtualization is enabled.
+ .Fork Torvald's Linux github repository.
+ .https://github.com/torvalds/linux
+ .Clone the github repository into the Ubuntu VM and install GIT if it isn't already installed with "sudo apt install git"
+ .To stop characters from appearing when you hit the arrow keys, open the vimrc file and add "set nocompatible".
+ .Copy cmpe283-1.c and the Makefile from the canvas to the VM.
+ .Add "MODULE LICENSE("GPL v2");" at the end of cmpe283-1.c to eliminate license errors.
+ .To install make, run "sudo apt install make."
+ .To install make, run "sudo apt install gcc."
+ .Execute make.
+ .Run cmpe283-1.ko insmod and lsmod to see if the kernel module is loaded.
+ .Run dmesg to obtain the system log of pin-based control.
+ .SDM is referred to, and structs with name and bit locations for entrance, exit, procbased, and secondary procbased controls are generated.
+ .The report capability() function is invoked with the appropriate arguments to print the controls.
+ .A new function has been built to examine the 55th bit of the IA32 VMX BASIC MSR to see if true controls are accessible. If this bit is set, true controls are accessible, and another function is run to print the true VMX capabilities.
+ .A new function has been built to examine the 63rd bit of the IA32 VMX PROCBASED MSR to verify whether Secondary Procbased controls are accessible. If this bit is set, secondary procbased controls are accessible, and another function will be called to report the associated secondary procbased capabilities.
+ .After making the required modifications, rerun make.
+ .Run sudo insmod cmpe283-1.ko to load the kernel.
+ .Execute dmesg
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
