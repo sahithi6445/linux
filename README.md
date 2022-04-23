@@ -51,13 +51,30 @@ Implementation details:
 ![WhatsApp Image 2022-04-22 at 11 39 21 PM](https://user-images.githubusercontent.com/61773326/164883609-6140ab00-f35b-4f5d-ac7a-33dc252891e3.jpeg)
 
 
-====================
+=============
 Assignment 2
 
 Describe in detail the steps you used to complete the assignment.
 
 Initial Setup
- . 
+.Build environment https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel
+.Clone the Kernel code from GitHub: git clone https://github.com/torvalds/linux.git
+.Kernel Code Compilation :
+uname -a
+cp /boot/config-5.8.0-43-generic ./.config
+make oldconfig
+make -j 2 modules && make -j 2 && sudo make modules_install && sudo make install
+reboot
+Verify the updated Linux version: uname -a
+
+1.Make changes to cpuid.c and vmx.c.
+2.Use make -j 2 modules && make -j 2 && sudo make modules install && sudo make install to compile.
+3.Install KVM and its dependencies with sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+4.Use sudo apt-get install virt-manager to install virt-manager.
+5.Reboot
+6.
+
+
 
 
 
