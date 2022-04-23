@@ -72,7 +72,21 @@ Verify the updated Linux version: uname -a
 3.Install KVM and its dependencies with sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 4.Use sudo apt-get install virt-manager to install virt-manager.
 5.Reboot
-6.
+6.Create a nested virtual machine with virt-manager.
+7.Install Ubuntu in a nested virtual machine
+8.Install gcc: https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/
+9.Compile test file: gcc test.c
+10.Check the output of gcc test.c
+11.Check host VM kern.log: tail -n20 /var/log/kern.log
+
+Comment on the frequency of exits – does the number of exits increase at a stable rate? Or are there more exits performed during certain VM operations? Approximately how many exits does a full VM boot entail?
+
+Answer:
+
+No, the number of exits is increasing at an unpredictably high rate. Other VM instructions/operations, such as EPT violation, RDRAND, I/O instructions, RDTSCP, and so on, cause exits to be executed. After the first build, rebooting, and using KVM to enter the nested VM, there were 156,411 exits. Because there may be a shutdown time with a hardware disruption in between, this may not be very accurate.
+
+
+
 
 
 
