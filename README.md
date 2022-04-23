@@ -78,11 +78,14 @@ Verify the updated Linux version: uname -a
 
 
 
+
+
  
  
  
  
- 
+ <img width="337" alt="Picture2" src="https://user-images.githubusercontent.com/61773326/164883785-cddc3faa-e0c3-408d-8be6-c58ae0df5f86.png">
+
  
  
  
