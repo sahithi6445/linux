@@ -141,7 +141,7 @@ No, the number of exits is increasing at an unpredictably high rate. Other VM in
 Assignment 3 
 ============
 
-===========================================
+===========================
 Name: Sahithi Bommadi(015949219)
 
 Question 1: Did by myself
@@ -194,7 +194,7 @@ Assignment 4
 ==========================
 
 
-===================================================
+===================================
 Name : Sahithi Bommadi
 
 Question 1: Did by myself
@@ -211,6 +211,25 @@ With EPT:
 
 
 
+
+![AS 4](https://user-images.githubusercontent.com/61773326/166093461-e093aeca-1d73-4cd3-b84d-43b28f7c2507.png)
+
+
+
+--> Following the installation of the module with ept =0:
+
+
+
+
+
+
+![AS 4](https://user-images.githubusercontent.com/61773326/166093580-7fe6f5de-b540-4f67-a701-ff15f8426795.png)
+
+Observations:
+
+. After observing the exits in nested paging, the output of exits is not what we expected. We see a lot of exits with shadow paging for some of the exits that were very low or not present in the case of nested paging.
+
+. In contrast to what we see in nested paging, we see most exits in the case of CR ACCESS rather than EPT exits. Exits for INVLPG and INVPCID can also be found. We see a lot of exits in the case of CR ACCESS because the hypervisor now exits when the control register is accessed, and we see a lot of exits during INVLPG because the hypervisor exits to invalidate translations in TLB.
 
 
 
