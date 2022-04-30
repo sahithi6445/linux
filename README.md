@@ -68,15 +68,25 @@ reboot
 Verify the updated Linux version: uname -a
 
 1.Make changes to cpuid.c and vmx.c.
+
 2.Use make -j 2 modules && make -j 2 && sudo make modules install && sudo make install to compile.
+
 3.Install KVM and its dependencies with sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+
 4.Use sudo apt-get install virt-manager to install virt-manager.
+
 5.Reboot
+
 6.Create a nested virtual machine with virt-manager.
+
 7.Install Ubuntu in a nested virtual machine
+
 8.Install gcc: https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/
+
 9.Compile test file: gcc test.c
+
 10.Check the output of gcc test.c
+
 11.Check host VM kern.log: tail -n20 /var/log/kern.log
 
 Comment on the frequency of exits – does the number of exits increase at a stable rate? Or are there more exits performed during certain VM operations? Approximately how many exits does a full VM boot entail?
