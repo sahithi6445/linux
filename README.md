@@ -1,6 +1,14 @@
 Assignmemt 1
 ============
 
+Name: Sahithi Bommadi(015949219)
+
+Question 1: 
+
+Did by myself
+
+Question 2:
+
 Aim:
 The aim of this assignment is to develop a Linux kernel module that queries various MSRs to detect whether virtualization capabilities are available in the CPU. The module notifies you of any new features it detects. The following items must be developed.
 
@@ -83,6 +91,13 @@ Implementation details:
 Assignment 2
 =============
 
+Name: Sahithi Bommadi(015949219)
+
+Question 1:
+
+Did by myself
+
+Question 2:
 
 Describe in detail the steps you used to complete the assignment.
 
@@ -141,34 +156,37 @@ No, the number of exits is increasing at an unpredictably high rate. Other VM in
 Assignment 3 
 ============
 
-===========================
 Name: Sahithi Bommadi(015949219)
 
-Question 1: Did by myself
+Question 1: 
 
-Question 2: Steps Used To Build And Complete
+Did by myself
 
-Begin with the Assignment-2 configuration.
+Question 2: 
 
-Make the following changes to the cpuid.c and vmx.c files:
+Steps Used To Build And Complete
 
-Return the high 32 bits of the total time spent processing all exits in percent ebx and the low 32 bits of the total time spent processing all exits in percent ecx when the leafnode eax value is 0x4FFFFFFE. This is accomplished by declaring a variable to store the total time and then adding the time spent processing each exit (calculated by reading the timestamp before and after the exit) to this total time.
+. Begin with the Assignment-2 configuration.
 
-Return the time spent processing that specific exit when the leafnode eax value is 0x4FFFFFFC and an exit number is provided in ecx as input. Return the high 32 bits of the total time spent for that exit in percent ebx and the low 32 bits of the total time spent in percent ecx. This is accomplished by declaring an array for each exit and storing the time spent on each exit in the corresponding array element.
+. Make the following changes to the cpuid.c and vmx.c files:
 
-.Save the changes in both files.
+. Return the high 32 bits of the total time spent processing all exits in percent ebx and the low   32 bits of the total time spent processing all exits in percent ecx when the leafnode eax value   is 0x4FFFFFFE. This is accomplished by declaring a variable to store the total time and then     adding the time spent processing each exit (calculated by reading the timestamp before and       after the exit) to this total time.
 
-.Execute the following commands in the order listed.
+. Return the time spent processing that specific exit when the leafnode eax value is 0x4FFFFFFC     and an exit number is provided in ecx as input. Return the high 32 bits of the total time spent   for that exit in percent ebx and the low 32 bits of the total time spent in percent ecx. This     is accomplished by declaring an array for each exit and storing the time spent on each exit in   the corresponding array element.
 
-.make -j 4 modules
+. Save the changes in both files.
 
-.make INSTALL_MOD_STRIP=1 modules_install && make install
+. Execute the following commands in the order listed.
 
-.To see if the module is already loaded, use "lsmod | grep kvm."
+. make -j 4 modules
 
-.rmmod kvm_intel; rmmod kvm
+. make INSTALL_MOD_STRIP=1 modules_install && make install
 
-.modprobe kvm
+. To see if the module is already loaded, use "lsmod | grep kvm."
+
+. rmmod kvm_intel; rmmod kvm
+
+. modprobe kvm
 
 -> We can now open the nested VM we installed in the assignment-2 steps to test the changes we made.
 
@@ -193,14 +211,16 @@ Questions for 0x4fffffff:
 Assignment 4
 ==========================
 
-
-===================================
 Name : Sahithi Bommadi
 
-Question 1: Did by myself
+Question 1: 
+
+Did by myself
 
 
-Question 2: Steps Used To Build And Complete 
+Question 2: 
+
+Steps Used To Build And Complete 
 
 . Begin with the Assignment-3 configuration.
 
@@ -227,9 +247,9 @@ With EPT:
 
 Observations:
 
-. After observing the exits in nested paging, the output of exits is not what we expected. We see a lot of exits with shadow paging for some of the exits that were very low or not present in the case of nested paging.
+. After observing the exits in nested paging, the output of exits is not what we expected. We see   a lot of exits with shadow paging for some of the exits that were very low or not present in     the case of nested paging.
 
-. In contrast to what we see in nested paging, we see most exits in the case of CR ACCESS rather than EPT exits. Exits for INVLPG and INVPCID can also be found. We see a lot of exits in the case of CR ACCESS because the hypervisor now exits when the control register is accessed, and we see a lot of exits during INVLPG because the hypervisor exits to invalidate translations in TLB.
+. In contrast to what we see in nested paging, we see most exits in the case of CR ACCESS rather   than EPT exits. Exits for INVLPG and INVPCID can also be found. We see a lot of exits in the     case of CR ACCESS because the hypervisor now exits when the control register is accessed, and     we see a lot of exits during INVLPG because the hypervisor exits to invalidate translations in   TLB.
 
 
 
