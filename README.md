@@ -137,11 +137,87 @@ No, the number of exits is increasing at an unpredictably high rate. Other VM in
 
  
  ![283 2](https://user-images.githubusercontent.com/61773326/166087932-b16864d1-b345-45cb-9231-121599ac049a.png)
+ 
+Assignment 3 
+============
 
- 
- 
- 
- 
- 
+===========================================
+Name: Sahithi Bommadi(015949219)
+
+Question 1: Did by myself
+
+Question 2: Steps Used To Build And Complete
+
+Begin with the Assignment-2 configuration.
+
+Make the following changes to the cpuid.c and vmx.c files:
+
+Return the high 32 bits of the total time spent processing all exits in percent ebx and the low 32 bits of the total time spent processing all exits in percent ecx when the leafnode eax value is 0x4FFFFFFE. This is accomplished by declaring a variable to store the total time and then adding the time spent processing each exit (calculated by reading the timestamp before and after the exit) to this total time.
+
+Return the time spent processing that specific exit when the leafnode eax value is 0x4FFFFFFC and an exit number is provided in ecx as input. Return the high 32 bits of the total time spent for that exit in percent ebx and the low 32 bits of the total time spent in percent ecx. This is accomplished by declaring an array for each exit and storing the time spent on each exit in the corresponding array element.
+
+.Save the changes in both files.
+
+.Execute the following commands in the order listed.
+
+.make -j 4 modules
+
+.make INSTALL_MOD_STRIP=1 modules_install && make install
+
+.To see if the module is already loaded, use "lsmod | grep kvm."
+
+.rmmod kvm_intel; rmmod kvm
+
+.modprobe kvm
+
+-> We can now open the nested VM we installed in the assignment-2 steps to test the changes we made.
+
+-> Now, in the terminal, type "cpuid -l 0x4FFFFFFE" to see how much time was spent processing all exits in ebx and ecx.
+
+-> The command "cpuid -l 0x4FFFFFFC -s exit reason" can be used to determine the total time spent processing the exit specified in exit reason.
+
+
+
+
+
+![as 3](https://user-images.githubusercontent.com/61773326/166092811-ba6bdf3f-7c12-4a8a-9a03-e817cf75c4c1.png)
+
+Questions for 0x4fffffff:
+
+--> The increase in total exits is not consistent. We notice a large number of exits for MSR access. We counted 1174554 exits for a full vm reboot.
+
+--> EPT violations and MSR access are the most common exits, while 0 (for VMWRITE, triple fault, etc.) and DR Access,APIC access are rare.
+
+
+
+Assignment 4
+==========================
+
+
+===================================================
+Name : Sahithi Bommadi
+
+Question 1: Did by myself
+
+
+Question 2: Steps Used To Build And Complete 
+
+. Begin with the Assignment-3 configuration.
+
+. Run the dmesg command to see the current number of exits for all possible reasons.
+
+With EPT:
+
+
+
+
+
+
+
+
+
+
+
+
  
  
